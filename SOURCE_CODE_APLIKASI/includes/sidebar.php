@@ -17,7 +17,8 @@ $current_page = $_SERVER['REQUEST_URI'];
 if ($host === 'localhost' || $host === '127.0.0.1') {
     // ---- SETTINGAN UNTUK LOCALHOST ----
     // Ganti 'nama_folder_project_anda' sesuai dengan nama folder di htdocs
-    $folder_local = "inventaris-kampus-ati"; 
+    $script_parts = explode('/', trim($_SERVER['SCRIPT_NAME'] ?? '', '/'));
+    $folder_local = (!empty($script_parts[0]) && !str_contains($script_parts[0], '.php')) ? $script_parts[0] : 'asetkampus'; 
     $base_url = $protocol . "://" . $host . "/" . $folder_local . "/";
 } else {
     // ---- SETTINGAN UNTUK HOSTING / LIVE ----

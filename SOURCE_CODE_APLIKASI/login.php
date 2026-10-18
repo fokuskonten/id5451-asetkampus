@@ -100,8 +100,10 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-icon.png">
+    <link rel="manifest" href="manifest.json">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -314,10 +316,15 @@ body {
             </div>
 
             <div class="mb-3">
+                <button type="button" class="btn btn-outline-primary btn-sm w-100 fw-bold py-2 rounded-3" onclick="fillAdminCreds()">
+                    <i class="bi bi-key-fill me-1"></i> Isi Kredensial Admin Utama (admin / admin)
+                </button>
+            </div>
+            <div class="mb-3">
                 <label class="form-label text-uppercase">Username</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" name="username" class="form-control" placeholder="ID Pegawai / Username" required>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="ID Pegawai / Username" autocomplete="username" required autofocus>
                 </div>
             </div>
 
@@ -325,7 +332,7 @@ body {
                 <label class="form-label text-uppercase">Password</label>
                  <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-key"></i></span>    
-                    <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" required>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
                     <span class="input-group-text password-toggle" onclick="togglePassword()" style="cursor: pointer;">
                         <i class="bi bi-eye-fill" id="toggleIcon"></i>
                     </span>
@@ -362,6 +369,12 @@ body {
 </div>
 
 <script>
+function fillAdminCreds() {
+    const adminRadio = document.querySelector('input[name=role][value=admin]');
+    if (adminRadio) adminRadio.checked = true;
+    document.getElementById('username').value = 'admin';
+    document.getElementById('password').value = 'admin';
+}
 function togglePassword() {
     const passwordInput = document.getElementById("password");
     const icon = document.getElementById("toggleIcon");

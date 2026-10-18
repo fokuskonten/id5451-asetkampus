@@ -1,0 +1,26 @@
+{
+  "name": "AsetKampus - Aplikasi Inventaris Barang Lab Dan Sarana Prasarana Kampus",
+  "short_name": "AsetKampus",
+  "description": "Aplikasi Manajemen Inventaris Laboratorium & Sarana Prasarana Kampus Resmi FokusKonten",
+  "start_url": "/asetkampus/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#001f3f",
+  "icons": [
+    {
+      "src": "/asetkampus/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/asetkampus/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/asetkampus/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
